@@ -1,0 +1,1784 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+	<teiHeader>
+		<fileDesc>
+			<titleStmt>
+				<title xml:lang="la">Epistula ad Carpianum. Canones euangeliorum</title>
+				<author>
+					<persName key="pta0003">Eusebius Caesariensis</persName>
+				</author>
+				<respStmt>
+					<persName xml:id="AvS">Annette von Stockhausen</persName>
+					<resp>Conversion to CTS-compliant PTA TEI.</resp>
+				</respStmt>
+			</titleStmt>
+			<publicationStmt>
+				<authority>Berlin-Brandenburgische Akademie der Wissenschaften</authority>
+				<distributor>Patristic Text Archive</distributor>
+				<availability>
+					<licence target="https://creativecommons.org/licenses/by-sa/4.0/">Available under a Creative Commons Attribution ShareAlike 4.0 International License</licence>
+				</availability>
+				<date>2024</date>
+				<idno type="PTA">pta0003.pta013</idno>
+				<idno type="TLG">tlg2018.tlg013</idno>
+				<idno type="CPG">3465</idno>
+				<idno type="Pinakes-Oeuvre">4942; 948</idno>
+			</publicationStmt>
+			<sourceDesc>
+				<listBibl>
+					<biblStruct type="book" xml:id="wallraff_kanontafeln_2021">
+						<monogr>
+							<title level="m">Die Kanontafeln des Euseb von Kaisareia: Untersuchung und kritische Edition</title>
+							<author>
+								<forename>Martin</forename>
+								<surname>Wallraff</surname>
+							</author>
+							<imprint>
+								<pubPlace>Boston</pubPlace>
+								<publisher>De Gruyter</publisher>
+								<date>2021</date>
+							</imprint>
+						</monogr>
+						<series>
+							<title level="s">Manuscripta biblica</title>
+							<biblScope unit="volume">1</biblScope>
+						</series>
+					</biblStruct>
+				</listBibl>
+			</sourceDesc>
+		</fileDesc>
+		<encodingDesc>
+			<refsDecl n="CTS">
+				<cRefPattern n="section" matchPattern="(.+).(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1']/tei:div[@n='$2'])"/>
+				<cRefPattern n="chapter" matchPattern="(.+)" replacementPattern="#xpath(/tei:TEI/tei:text/tei:body/tei:div[@type='edition']/tei:div[@n='$1'])"/>
+			</refsDecl>
+			<refsDecl xml:id="biblical">
+				<cRefPattern matchPattern="(.+):(.+):([0-9]+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3,$4/$1">
+					<p>For references to the Septuagint LXX is used as abbreviation, for references to the New Testament NA is used as abbreviation for the version.</p>
+					<p>Noted are references to a biblical book, chapter, verse, sc. LXX:Gn:1:1; also possible: LXX:Gn:1:1-3 for a sequence of verses or LXX:Gn:1:1.3 for two verses not following each other.</p>
+					<p>The following abbreviations are used: Gn, Ex, Lv, Num, Dt, Jos, Judg, Rt, 1Sa, 2Sa, 1Ko, 2Ko, 1Chr, 2Chr, 3Esr, Esr, Est, Jdt, Tob, 1Mak, 2Mak, 3Mak, 4Mak, Ps, Oden, Prov, Eccl, Song, Job, Wis, Sir, PsSal, Hos, Am, Mi, Joel, Ob, Jon, Nah, Hab, Zeph, Hag, Sach, Mal, Is, Jr, Bar, Lam, EpistJer, Hes, Sus, Dn, Bel; Mt, Mk, Lk, Jn, Act, Rom, 1Cor, 2Cor, Gal, Eph, Phil, Col, 1Th, 2Th, 1Tim, 2Tim, Tt, Phm, Heb, Jak, 1P, 2P, 1Jn, 2Jn, 3Jn, Jud, Rev.</p>
+				</cRefPattern>
+				<cRefPattern matchPattern="(.+):(.+):([0-9]+)[\-\.]*[0-9]*" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2$3/$1">
+					<p>Noted are references to a biblical book and chapter, sc. LXX:Gn:1; also possible: LXX:Gn:1-3 for a sequence of chapters or LXX:Gn:1.3 for two chapters not following each other.</p>
+				</cRefPattern>
+				<cRefPattern matchPattern="(.+):(.+)" replacementPattern="https://www.bibelwissenschaft.de/bibelstelle/$2/$1">
+					<p>Noted are references to a biblical book, sc. LXX:Gn.</p>
+				</cRefPattern>
+			</refsDecl>
+			<editorialDecl>
+				<interpretation>
+					<p>This file is encoded according to the guidelines of the Patristic Text Archive (PTA). See https://pta.bbaw.de/project/encoding-guidelines and https://doi.org/10.5281/zenodo.3737666.</p>
+					<p xml:id="biblical-quotations" ana="fully/partially/not-annotated fully/partially/not-identified">Biblical quotations are fully/partially/not annotated and/but not fully/partially referenced. References follow the scheme declared <ref target="#biblical">above</ref>. 
+                        </p>
+					<p xml:id="other-quotations" ana="fully/partially/not-annotated fully/partially/not-identified">Other quotations are fully/partially/not annotated and/but not fully/partially referenced. References follow the scheme declared as  <ref target="#pta">pta</ref> or as <ref target="#perseus">perseus</ref> above.</p>
+					<p xml:id="places" ana="fully/partially/not-annotated fully/partially/not-identified">Places are fully/partially/not annotated and/but not fully/partially referenced with <ref target="https://pleiades.stoa.org/">Pleiades Gazetteer</ref> IDs.</p>
+					<p xml:id="persons" ana="fully/partially/not-annotated fully/partially/not-identified">Persons are fully/partially/not annotated and/but not fully/partially referenced with IDs according to the <ref target="https://github.com/PatristicTextArchive/tipnr_data">TIPNR - Tyndale Individualised Proper Names with all References</ref> list for biblical persons and IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_persons.json">PTA persons index</ref> for all other persons.</p>
+					<p xml:id="groups" ana="fully/partially/not-annotated fully/partially/not-identified">Groups of persons and organisations are fully/partially/not annotated and/but not fully/partially referenced with IDs according to the IDs of <ref target="https://github.com/PatristicTextArchive/pta_metadata/blob/main/pta_groups.json">PTA groups index</ref> for all other groups.</p>
+				</interpretation>
+				<normalization>
+					<p>
+						<!--Usage of capitalisation, ν-ephelkystikon, σ: οὕτως, Iota subscriptum/adscriptum, Trema, Enclitics, apostroph/elisions, number signs, splitting of words, nomina sacra, ...-->
+					</p>
+				</normalization>
+				<punctuation>
+					<p>
+						<!--Usage (and/or normalisation) of full stop, comma, semicolon, question mark, dash and parenthesis-->
+					</p>
+				</punctuation>
+			</editorialDecl>
+			<classDecl>
+				<taxonomy xml:id="comphistsem">
+					<bibl>Text Type Classification by <ref target="https://www.comphistsem.org/46.html">"Computational Historical Semantics</ref>
+					</bibl>
+				</taxonomy>
+				<taxonomy xml:id="editionstatus">
+					<bibl>Patristic Text Archive Status of edition</bibl>
+					<category xml:id="critical-edition">
+						<catDesc>Critical edition in which the text-critical variants have been encoded.</catDesc>
+					</category>
+					<category xml:id="critical-edition-no-app">
+						<catDesc>Critical edition in which the text-critical variants have not been encoded, e.g. because it is a retro-digitisation of a printed critical edition and for copyright reasons the apparatus cannot be included in the retro-digitisation.</catDesc>
+					</category>
+					<category xml:id="critical-edition-outdated">
+						<catDesc>Edition which notes text-critical variants, but does not, for example, comprehensively include the manuscripts.</catDesc>
+					</category>
+					<category xml:id="pre-critical-edition">
+						<catDesc>Pre-modern editions (e.g. editions in the Patrologia Graeca or Latina)</catDesc>
+					</category>
+				</taxonomy>
+				<taxonomy xml:id="annotationstatus">
+					<bibl>Patristic Text Archive Status of annotation</bibl>
+					<category xml:id="fully-annotated">
+						<catDesc>All instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.</catDesc>
+					</category>
+					<category xml:id="partially-annotated">
+						<catDesc>Some instances of a phenomenon (e.g. biblical quotations, persons, places) are encoded with the respective element.</catDesc>
+					</category>
+					<category xml:id="fully-identified">
+						<catDesc>All encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.</catDesc>
+					</category>
+					<category xml:id="partially-identified">
+						<catDesc>Some encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.</catDesc>
+					</category>
+					<category xml:id="not-identified">
+						<catDesc>No encoded instances of a phenomenon (e.g. biblical quotations, persons, places) are identified with the respective norm data.</catDesc>
+					</category>
+				</taxonomy>
+			</classDecl>
+			<schemaRef key="v3" url="https://raw.githubusercontent.com/PatristicTextArchive/Schema/master/tei-pta.rng"/>
+		</encodingDesc>
+		<profileDesc>
+			<creation>
+				<date notBefore="0030" notAfter="0800">
+					<!--Correct dates need to be filled in.-->
+				</date>
+				<placeName ref="http://pleiades.stoa.org/places/">
+					<!--Correct place needs to be filled in and referenced.-->
+				</placeName>
+			</creation>
+			<textClass>
+				<keywords scheme="#comphistsem">
+					<term>
+						<!--Genre missing-->
+					</term>
+				</keywords>
+				<keywords scheme="#editionstatus">
+					<term>critical-edition-no-app</term>
+				</keywords>
+			</textClass>
+		</profileDesc>
+		<revisionDesc status="draft">
+			<change when="2023-12-01" who="#AvS">Converted to PTA encoding guidelines</change>
+		</revisionDesc>
+	</teiHeader>
+	<text>
+		<body>
+			<div type="edition" xml:lang="grc" n="urn:cts:pta:pta0003.pta013.pta-grc1">
+				<div type="textpart" subtype="chapter" n="ep.">
+					<div type="textpart" subtype="section" n="1">
+						<p>
+							<pb n="175"/>Εὐσέβιος Καρπιανῷ ἀγαπητῷ ἀδελφῷ ἐν κυρίῳ χαίρειν.</p>
+					</div>
+					<div type="textpart" subtype="section" n="2">
+						<p>Ἀμμώνιος μὲν ὁ Ἀλεξανδρεὺς πολλὴν ὡς εἰκὸς φιλοπονίαν καὶ σπουδὴν εἰσηγιοχὼς τὸ διὰ τεσσάρων ἡμῖν καταλέλοιπεν εὐαγγέλιον, τῷ κατὰ Ματθαῖον τὰς ὁμοφώνους τῶν λοιπῶν εὐαγγελιστῶν περικοπὰς παραθείς, ὡς ἐξ ἀνάγκης συμβῆναι τὸν τῆς ἀκολουθίας εἱρμὸν τῶν τριῶν διαφθαρῆναι ὅσον ἐπὶ τῷ ὕφει τῆς ἀναγνώσεως.</p>
+					</div>
+					<div type="textpart" subtype="section" n="3">
+						<p>Ἵνα δὲ σωζομένου καὶ τοῦ τῶν λοιπῶν δι’ ὅλου σώματός τε καὶ εἱρμοῦ εἰδέναι ἔχοις τοὺς οἰκείους ἑκάστου εὐαγγελίου τόπους, ἐν οἷς κατὰ τῶν αὐτῶν ἠνέχθησαν φιλαλήθως εἰπεῖν, ἐκ τοῦ π ονήματος τοῦ προειρημένου ἀνδρὸς εἰληφὼς ἀφορμὰς καθ’ ἑτέραν μέθοδον κανόνας δέκα τὸν ἀριθμὸν ἐχάραξά σοι τοὺς ὑποτεταγμένους.</p>
+					</div>
+					<div type="textpart" subtype="section" n="4">
+						<p>
+							<list>
+								<item>Ὧν ὁ μὲν πρῶτος περιέχει ἀριθμούς, ἐν οἷς τὰ παραπλήσια εἰρήκασιν οἱ τέσσαρες· Ματθαῖος Μάρκος Λουκᾶς Ἰωάννης.</item>
+								<item>ὁ δεύτερος, ἐν ᾧ οἱ τρεῖς· Ματθαῖος Μάρκος Λουκᾶς.</item>
+								<item>ὁ τρίτος, ἐν ᾧ οἱ τρεῖς· Ματθαῖος Λουκᾶς Ἰωάννης.</item>
+								<item>ὁ τέταρτος, ἐν ᾧ οἱ τρεῖς· Ματθαῖος Μάρκος Ἰωάννης.</item>
+								<item>ὁ πέμπτος, ἐν ᾧ οἱ δύο· Ματθαῖος Λουκᾶς.</item>
+								<item>ὁ ἕκτος, ἐν ᾧ οἱ δύο· Ματθαῖος Μάρκος.</item>
+								<item>ὁ ἕβδομος, ἐν ᾧ οἱ δύο· Ματθαῖος Ἰωάννης.</item>
+								<item>ὁ ὄγδοος, ἐν ᾧ οἱ δύο· Λουκᾶς Μάρκος.</item>
+								<pb n="176"/>
+								<item>ὁ ἔνατος, ἐν ᾧ οἱ δύο· Λουκᾶς Ἰωάννης.</item>
+								<item>ὁ δέκατος, ἐν οἷς ἕκαστος αὐτῶν περί τινων ἰδίως ἀνέγραψεν.</item>
+							</list>
+						</p>
+					</div>
+					<div type="textpart" subtype="section" n="5">
+						<p>Αὕτη μὲν οὖν ἡ τῶν ὑποτεταγμένων κανόνων ὑπόθεσις, ἡ δὲ σαφὴς αὐτῶν διήγησίς ἐστιν ἥδε.</p>
+					</div>
+					<div type="textpart" subtype="section" n="6">
+						<p>Ἐφ’ ἑκάστῳ τῶν τεσσάρων εὐαγγελίων ἀριθμός τις πρόκειται κατὰ μέρος, ἀρχόμενος ἀπὸ πρώτου, εἶτα δευτέρου καὶ τρίτου καὶ καθεξῆς, προϊὼν δι’ ὅλου μέχρι τοῦ τέλους τῶν βιβλίων.</p>
+					</div>
+					<div type="textpart" subtype="section" n="7">
+						<p>Καθ’ ἕκαστον δὲ ἀριθμὸν ὑποσημείωσις διὰ κινναβάρεως ἔγκειται, δηλοῦσα ἐν ποίῳ τῶν δέκα κανόνων κείμενος ὁ ἀριθμὸς τυγχάνει. οἷον εἰ μὲν <num>α</num>, δῆλον ὡς ἐν τῷ πρώτῳ· εἰ δὲ <num>β</num>, ὡς ἐν τῷ δευτέρῳ· καὶ οὕτως μέχρι τῶν δέκα.</p>
+					</div>
+					<div type="textpart" subtype="section" n="8">
+						<p>Εἰ οὖν ἀναπτύξας ἕν τι τῶν τεσσάρων εὐαγγελίων ὁποιονδήποτε βουληθείης ἐπιστῆσαί τινι ᾧ βούλει κεφαλαίῳ, καὶ γνῶναι τίνες τὰ παραπλήσια εἰρήκασιν, καὶ τοὺς οἰκείους ἑκάστου τόπους εὑρεῖν, ἐν οἷς κατὰ τῶν αὐτῶν ἠνέχθησαν, ἧς ἐπέχεις π ερικοπῆς ἀναλαβὼν τὸν προκείμενον ἀριθμόν, ἐπιζητήσας τε αὐτὸν ἐν τῷ κανόνι ὃν ἡ διὰ τοῦ κινναβάρεως ὑποσημείωσις ὑποβέβληκεν, εἴσῃ μὲν εὐθὺς ἐκ τῶν ἐπὶ μετώπου τοῦ κανόνος προγραφῶν πόσοι τε καὶ τίνες περὶ οὗ ζητεῖς εἰρήκασιν.</p>
+					</div>
+					<div type="textpart" subtype="section" n="9">
+						<p>Ἐπιστήσας δὲ καὶ τοῖς τῶν λοιπῶν εὐαγγελιστῶν ἀριθμοῖς τοῖς ἐν τῷ κανόνι ᾧ ἐπέχεις ἀριθμῷ παρακειμένοις, ἐπιζητήσας τε αὐτοὺς ἔνδον ἐν τοῖς οἰκείοις ἑκάστου εὐαγγελίου τόποις, τὰ παραπλήσια λέγοντας αὐτοὺς εὑρήσεις.</p>
+					</div>
+					<div type="textpart" subtype="section" n="10">
+						<p>Ἔρρωσο ἐν κυρίῳ.</p>
+					</div>
+				</div>
+            <div type="textpart" subtype="chapter" n="canones">
+               <div type="textpart" subtype="section" n="1">		
+				<head><title>Kανὼν <num>α</num> ἐν ᾧ οἱ <num>δ</num></title></head>	
+				<table>
+					<row role="label">
+					<cell>Μτ</cell>
+					<cell>Μρ</cell>
+					<cell>Λο</cell>
+					<cell>Ιω</cell>
+					</row>
+					<row n="0">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:3:3">
+						  <num value="8">η</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:1:3">
+						  <num value="2">β</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:3:3-6">
+						  <num value="7">ζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:1:23">
+						  <num value="10">ι</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="1">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:3:11">
+						  <num value="11">ια</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:1:7b-8">
+						  <num value="4">δ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:3:16b">
+						  <num value="10">ι</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:1:15">
+						  <num value="6">ϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="2">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:3:11">
+						  <num value="11">ια</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:1:7b-8">
+						  <num value="4">δ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:3:16b">
+						  <num value="10">ι</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:1:26-27">
+						  <num value="12">ιβ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="3">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:3:11">
+						  <num value="11">ια</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:1:7b-8">
+						  <num value="4">δ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:3:16b">
+						  <num value="10">ι</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:1:30-31">
+						  <num value="14">ιδ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="4">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:3:11">
+						  <num value="11">ια</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:1:7b-8">
+						  <num value="4">δ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:3:16b">
+						  <num value="10">ι</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:3:28">
+						  <num value="28">κη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="5">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:3:16-17">
+						  <num value="14">ιδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:1:9-11">
+						  <num value="5">ε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:3:21-22">
+						  <num value="13">ιγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:1:32-34">
+						  <num value="15">ιε</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="6">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:4:23-25">
+						  <num value="23">κγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:3:7b-11a">
+						  <num value="27">κζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:4:14-15">
+						  <num value="17">ιζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:1-2">
+						  <num value="46">μϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="7">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:4:23-25">
+						  <num value="23">κγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:3:7b-11a">
+						  <num value="27">κζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:5:15">
+						  <num value="34">λδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:1-2">
+						  <num value="46">μϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="8">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:4:23-25">
+						  <num value="23">κγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:3:7b-11a">
+						  <num value="27">κζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:6:17-19">
+						  <num value="45">με</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:1-2">
+						  <num value="46">μϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="9">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:9:1-8">
+						  <num value="70">ο</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:2:1-12">
+						  <num value="20">κ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:5:18-26">
+						  <num value="37">λζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:5:1-10">
+						  <num value="38">λη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="10">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:10:40">
+						  <num value="98">ϟη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:9:37b">
+						  <num value="96">ϟϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:10:16">
+						  <num value="116">ριϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:13:20">
+						  <num value="120">ρκ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="11">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:10:40">
+						  <num value="98">ϟη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:9:37b">
+						  <num value="96">ϟϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:10:16">
+						  <num value="116">ριϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:12:44-45">
+						  <num value="111">ρια</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="12">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:10:40">
+						  <num value="98">ϟη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:9:37b">
+						  <num value="96">ϟϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:10:16">
+						  <num value="116">ριϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:5:23b">
+						  <num value="40">μ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="13">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:10:40">
+						  <num value="98">ϟη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:9:37b">
+						  <num value="96">ϟϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:10:16">
+						  <num value="116">ριϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:15:23">
+						  <num value="144">ρμδ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="14">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:10:40">
+						  <num value="98">ϟη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:9:37b">
+						  <num value="96">ϟϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:10:16">
+						  <num value="116">ριϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:14:21b">
+						  <num value="129">ρκθ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="15">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:10:40">
+						  <num value="98">ϟη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:9:37b">
+						  <num value="96">ϟϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:10:16">
+						  <num value="116">ριϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:14:24b-25">
+						  <num value="131">ρλα</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="16">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:13:13-15">
+						  <num value="133">ρλγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:4:11b-13">
+						  <num value="37">λζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:8:10b">
+						  <num value="77">οζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:12:39-40">
+						  <num value="109">ρθ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="17">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:13:54-56">
+						  <num value="141">ρμα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:6:1-3">
+						  <num value="50">ν</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:4:22">
+						  <num value="19">ιθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:41-42">
+						  <num value="59">νθ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="18">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:13:57-58">
+						  <num value="142">ρμβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:6:4-6a">
+						  <num value="51">να</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:4:24">
+						  <num value="21">κα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:4:44">
+						  <num value="35">λε</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="19">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:14:15-21">
+						  <num value="147">ρμζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:6:35-44">
+						  <num value="64">ξδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:9:12-17">
+						  <num value="93">ϟγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:5-13">
+						  <num value="49">μθ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="20">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:16:13-16">
+						  <num value="166">ρξϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:8:27-29a">
+						  <num value="82">πβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:9:18-20">
+						  <num value="94">ϟδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:68-69">
+						  <num value="74">οδ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="21">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:16:13-16">
+						  <num value="166">ρξϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:8:27-29a">
+						  <num value="82">πβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:9:18-20">
+						  <num value="94">ϟδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:1:41-42">
+						  <num value="17">ιζ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="22">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:21:9">
+						  <num value="209">σθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:11:9-10">
+						  <num value="119">ριθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:19:37-38">
+						  <num value="234">σλδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:12:12-13">
+						  <num value="100">ρ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="23">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:21:12-13">
+						  <num value="211">σια</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:11:15-17">
+						  <num value="121">ρκα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:19:45-46">
+						  <num value="238">σλη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:2:14-16">
+						  <num value="21">κα</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="24">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:21:45-46">
+						  <num value="220">σκ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:11:18">
+						  <num value="122">ρκβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:19:47-48">
+						  <num value="239">σλθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:7:44">
+						  <num value="85">πε</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="25">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:21:45-46">
+						  <num value="220">σκ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:12:12">
+						  <num value="129">ρκθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:20:19">
+						  <num value="242">σμβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:8:20">
+						  <num value="88">πη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="26">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:21:45-46">
+						  <num value="220">σκ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:12:12">
+						  <num value="129">ρκθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:2">
+						  <num value="261">σξα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:7:30">
+						  <num value="77">οζ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="27">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:24:9">
+						  <num value="244">σμδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:13:9">
+						  <num value="139">ρλθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:21:12-13">
+						  <num value="250">σν</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:16:2b-4a">
+						  <num value="146">ρμϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="28">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:24:9">
+						  <num value="244">σμδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:13:9">
+						  <num value="139">ρλθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:21:12-13">
+						  <num value="250">σν</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:15:21a">
+						  <num value="141">ρμα</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="29">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:2">
+						  <num value="274">σοδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:1a">
+						  <num value="156">ρνϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:1">
+						  <num value="260">σξ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:2:13">
+						  <num value="20">κ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="30">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:2">
+						  <num value="274">σοδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:1a">
+						  <num value="156">ρνϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:1">
+						  <num value="260">σξ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:4">
+						  <num value="48">μη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="31">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:2">
+						  <num value="274">σοδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:1a">
+						  <num value="156">ρνϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:1">
+						  <num value="260">σξ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:11:55a ">
+						  <num value="96">ϟϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="32">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:6-11">
+						  <num value="276">σοϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:3-7">
+						  <num value="158">ρνη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:7:36-50">
+						  <num value="74">οδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:12:2-8">
+						  <num value="98">ϟη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="33">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:22">
+						  <num value="280">σπ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:19">
+						  <num value="162">ρξβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:23">
+						  <num value="269">σξθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:13:22">
+						  <num value="122">ρκβ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="34">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:26">
+						  <num value="284">σπδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:22">
+						  <num value="165">ρξε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:19">
+						  <num value="266">σξϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:35a">
+						  <num value="55">νε</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="35">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:26">
+						  <num value="284">σπδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:22">
+						  <num value="165">ρξε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:19">
+						  <num value="266">σξϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:48">
+						  <num value="63">ξγ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="36">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:26">
+						  <num value="284">σπδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:22">
+						  <num value="165">ρξε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:19">
+						  <num value="266">σξϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:51">
+						  <num value="65">ξε</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="37">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:26">
+						  <num value="284">σπδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:22">
+						  <num value="165">ρξε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:19">
+						  <num value="266">σξϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:55">
+						  <num value="67">ξζ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="38">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:33-34">
+						  <num value="289">σπθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:29-30">
+						  <num value="170">ρο</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:33-34">
+						  <num value="275">σοε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:13:36-38">
+						  <num value="126">ρκϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="39">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:36a">
+						  <num value="291">σϟα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:32a">
+						  <num value="172">ροβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:39">
+						  <num value="279">σοθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:1">
+						  <num value="156">ρνϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="40">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:39a">
+						  <num value="294">σϟδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:35-36a">
+						  <num value="175">ροε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:41">
+						  <num value="281">σπα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:11b">
+						  <num value="161">ρξα</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="41">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:39b-40a">
+						  <num value="295">σϟε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:36b">
+						  <num value="176">ροϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:42">
+						  <num value="282">σπβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:38">
+						  <num value="57">νζ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="42">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:39b-40a">
+						  <num value="295">σϟε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:36b">
+						  <num value="176">ροϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:42">
+						  <num value="282">σπβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:5:30b">
+						  <num value="42">μβ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="43">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:47">
+						  <num value="300">τ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:43">
+						  <num value="181">ρπα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:47a">
+						  <num value="285">σπε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:3">
+						  <num value="158">ρνη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="44">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:47">
+						  <num value="300">τ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:43">
+						  <num value="181">ρπα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:47a">
+						  <num value="285">σπε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:7:32b">
+						  <num value="79">οθ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="45">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:51-52a">
+						  <num value="302">τβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:47">
+						  <num value="183">ρπγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:49-50">
+						  <num value="287">σπζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:10-11a">
+						  <num value="160">ρξ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="46">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:55">
+						  <num value="304">τδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:48-49a">
+						  <num value="184">ρπδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:52-53">
+						  <num value="289">σπθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:20">
+						  <num value="170">ρο</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="47">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:57">
+						  <num value="306">τϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:53">
+						  <num value="187">ρπζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:54a">
+						  <num value="290">σϟ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:12">
+						  <num value="162">ρξβ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="48">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:57">
+						  <num value="306">τϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:53">
+						  <num value="187">ρπζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:54a">
+						  <num value="290">σϟ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:24">
+						  <num value="174">ροδ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="49">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:64b">
+						  <num value="310">τι</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:62">
+						  <num value="191">ρϟα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:69">
+						  <num value="297">σϟζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:6:62">
+						  <num value="69">ξθ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="50">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:67-68">
+						  <num value="313">τιγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:65">
+						  <num value="194">ρϟδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:63-65">
+						  <num value="294">σϟδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:22">
+						  <num value="172">ροβ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="51">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:69-70">
+						  <num value="314">τιδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:66-68a">
+						  <num value="195">ρϟε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:54b-57">
+						  <num value="291">σϟα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:17">
+						  <num value="168">ρξη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="52">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:69-70">
+						  <num value="314">τιδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:66-68a">
+						  <num value="195">ρϟε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:54b-57">
+						  <num value="291">σϟα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:16a">
+						  <num value="166">ρξϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="53">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:26:71-74">
+						  <num value="315">τιε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:14:68b-72a">
+						  <num value="196">ρϟϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:22:58-61a">
+						  <num value="292">σϟβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:25-27">
+						  <num value="175">ροε</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="54">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:2">
+						  <num value="318">τιη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:1b">
+						  <num value="199">ρϟθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:1">
+						  <num value="300">τ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:28a">
+						  <num value="176">ροϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="55">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:11">
+						  <num value="320">τκ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:2">
+						  <num value="200">σ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:3">
+						  <num value="302">τβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:33">
+						  <num value="178">ροη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="56">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:20-21">
+						  <num value="325">τκε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:11">
+						  <num value="204">σδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:18-19">
+						  <num value="310">τι</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:18:40">
+						  <num value="184">ρπδ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="57">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:22-23">
+						  <num value="326">τκϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:12-14">
+						  <num value="205">σε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:20-21">
+						  <num value="311">τια</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:6a">
+						  <num value="188">ρπη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="58">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:22-23">
+						  <num value="326">τκϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:12-14">
+						  <num value="205">σε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:23">
+						  <num value="313">τιγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:15a">
+						  <num value="194">ρϟδ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="59">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:26">
+						  <num value="328">τκη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:15">
+						  <num value="206">σϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:24-25">
+						  <num value="314">τιδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:16">
+						  <num value="196">ρϟϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="60">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:32">
+						  <num value="331">τλα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:21">
+						  <num value="209">σθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:26">
+						  <num value="315">τιε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:17-18a">
+						  <num value="197">ρϟζ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="61">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:33">
+						  <num value="332">τλβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:22">
+						  <num value="210">σι</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:33a">
+						  <num value="318">τιη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:17-18a">
+						  <num value="197">ρϟζ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="62">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:35-36">
+						  <num value="334">τλδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:24">
+						  <num value="212">σιβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:34b-35a">
+						  <num value="321">τκα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:23-24a">
+						  <num value="201">σα</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="63">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:37">
+						  <num value="335">τλε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:26">
+						  <num value="214">σιδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:38">
+						  <num value="324">τκδ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:19">
+						  <num value="199">ρϟθ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="64">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:38">
+						  <num value="336">τλϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:27">
+						  <num value="215">σιε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:32">
+						  <num value="317">τιζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:18b">
+						  <num value="198">ρϟη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="65">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:38">
+						  <num value="336">τλϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:27">
+						  <num value="215">σιε</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:33b">
+						  <num value="319">τιθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:18b">
+						  <num value="198">ρϟη</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="66">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:50">
+						  <num value="343">τμγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:37">
+						  <num value="223">σκγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:46">
+						  <num value="329">τκθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:30b">
+						  <num value="204">σδ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="67">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:57-58">
+						  <num value="348">τμη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:42-45">
+						  <num value="227">σκζ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:50-52">
+						  <num value="332">τλβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:38">
+						  <num value="206">σϛ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="68">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:27:59-60">
+						  <num value="349">τμθ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:15:46">
+						  <num value="228">σκη</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:23:53">
+						  <num value="333">τλγ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:19:40-42">
+						  <num value="208">ση</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="69">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:28:1-4">
+						  <num value="352">τνβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:16:2-5">
+						  <num value="231">σλα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:24:1-4">
+						  <num value="336">τλϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:20:1">
+						  <num value="209">σθ</num>
+						</ref>
+					  </cell>
+					</row>
+					<row n="70">
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mt:28:1-4">
+						  <num value="352">τνβ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Mk:16:2-5">
+						  <num value="231">σλα</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Lk:24:1-4">
+						  <num value="336">τλϛ</num>
+						</ref>
+					  </cell>
+					  <cell>
+						<ref decls="#biblical" cRef="NA:Jn:20:11-12">
+						  <num value="211">σια</num>
+						</ref>
+					  </cell>
+					</row>
+				  </table>
+			<p>τέλος κανόνος αʹ ἐν ᾧ οἱ δʹ</p>
+               </div>
+            </div>
+			</div>
+		</body>
+	</text>
+</TEI>

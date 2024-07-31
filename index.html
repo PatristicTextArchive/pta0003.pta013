@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+  <link rel="stylesheet" href="CETEIcean.css">
+  <script src="CETEI.js"></script>
+  <script>
+  let selectedFile = "data/pta0003.pta013.pta-grc1.xml"
+  let c = new CETEI();
+  let behaviors = {
+    "tei": {
+    	  "teiHeader": null,  
+    	  "div": [
+            ["[subtype=chapter]", ["<h1>$@n</h1>", ""]],
+            ["[subtype=section]", ["<h2>$@n</h2>", ""]],
+            ["[subtype=subsection]", ["<b>$@n</b>", ""]],
+            ['_', ["", ""]]
+        ],
+        "ref": [
+            ["tei-quote tei-ref[decls]", ["", " <span class=\'annotation\'>[$@cref]</span>"]],
+            ["[decls]", ["", " <span class=\'annotation\'>[$@cref]</span>"]],
+            ["_", ["", "[$@target]"]]
+        ],
+        "milestone": [
+            ["[edRef]", ["($@n $@edRef",")"]],
+        ],
+        "cb": [
+            ["[n]", ["[col. $@n]"]],
+            ["_", ["[col.]"]]
+        ],
+        "pb": [
+            ["tei-div[type=praefatio] tei-pb[n]",["[$@n]"]],
+            //["[facs]", ["<a href=\"$rw@facs\" target=\"_blank\">[$@n]","</a>"]],
+            //["[n][edRef]", ["[$@n ($@edRef)]"]],
+            //["[n]", ["[$@n]"]]
+        ],
+        "note": [
+            ["[place][hand]", ["[note: $@place ($@hand)] ",""]],
+            ["[place]", ["[note: $@place] ",""]],
+        ],
+        "subst": [
+            ["[hand]", ["⸢", " (<small>$@hand</small>)⸣"]],
+            ['_', ["⸢", "⸣"]]
+        ],
+        "add": [
+            ["[place=margin][hand]", [" ⟨$@hand in mg. ","⟩"]],
+            ["[place=margin]", [" ⟨in mg. ","⟩"]],
+            ["[place=above][hand]", ["<sup>⟨"," ($@hand)⟩</sup>"]],
+            ["[place=above]", ["<sup>⟨","⟩</sup>"]],
+            ["[place=inline][hand]", ["⟨"," ($@hand)⟩"]],
+            ["[place=inline]", ["⟨","⟩"]],
+            ["_", ["⟨","⟩"]]
+        ],
+        "del": [
+            ["[rend=unmarked][hand]", [" "," <sup>del. ($@hand)</sup>"]],
+            ["[rend=unmarked]", [" "," <sup>del.</sup>"]],
+            ["[rend=marker][hand]", [" ","* ($@hand)"]],
+            ["[rend=marker]", [" ","*"]],
+            ["[rend=strikethrough][hand]", [" "," ($@hand)"]],
+            ["[rend=strikethrough]", [" "," "]],
+            ["[rend=expunction][hand]", [" "," ($@hand)"]],
+            ["[rend=expunction]", [" "," "]],
+            ["[rend=erasure][hand]", [" "," ($@hand)"]],
+            ["[rend=erasure]", [" "," "]],
+            ["[rend=overwrite][hand]", [" "," ($@hand)"]],
+            ["[rend=overwrite]", [" "," "]],
+            ["_", [" "," "]]
+        ],
+        "supplied": [
+            ["[reason=lost]", ["{","}"]],
+            ["_", ["⟨","⟩"]]
+        ],
+        "surplus": [
+            "[","]"
+        ],
+        "gap": [
+            ["[resp][reason=missing]", ["[[lacunam ($@quantity $@unit) ind. $@resp]]"]],
+            ["[source][reason=missing]", ["[[lacunam ($@quantity $@unit) ind. $@source]]"]],
+            ["[reason=missing][quantity]", ["[[lacuna ($@quantity $@unit)]]"]],
+            ["[reason=missing]", ["[[lacuna]]"]],
+            ["[reason=illegible][quantity]", ["[[illegible ($@quantity $@unit)]]"]],
+            ["[reason=illegible]", ["[[illegible]]"]],
+            ["[reason=damage][quantity]", ["[[damage ($@quantity $@unit)]]"]],
+            ["[reason=damage]", ["[[damage]]"]],
+            ["[reason=fenestra][quantity]", ["[[fenestra ($@quantity $@unit)]]"]],
+            ["[reason=fenestra]", ["[[fenestra]]"]],
+        ]
+    }
+};
+  c.addBehaviors(behaviors);
+  c.getHTML5(selectedFile, function(data) {
+      document.getElementsByTagName("div")[0].appendChild(data);
+      var substitutions = document.querySelectorAll("tei-subst")       
+      	substitutions.forEach( function(subst){            
+      		subst.querySelector("tei-add").addEventListener("click", function(){
+      		var del = subst.querySelector("tei-del")
+      		if (window.getComputedStyle(del).getPropertyValue("display") == "none") {                     
+      			del.style.display = "inline"         
+      			}  
+      		else 
+      		{                     
+      			del.style.display = "none"         
+      		}           
+      		})       
+      })
+      var nomsac = document.querySelectorAll("tei-choice")       
+      	nomsac.forEach( function(subst){            
+      		subst.querySelector("tei-abbr").addEventListener("mouseover", function(){
+      		var expan = subst.querySelector("tei-expan")
+      		if (window.getComputedStyle(expan).getPropertyValue("display") == "none") {                     
+      			expan.style.display = "inline" 
+      			expan.style.color = "grey"   
+      			}  
+      		else 
+      		{                     
+      			expan.style.display = "none"          
+      		}           
+      		})       
+      })
+    });
+  </script>
+</head>
+<body>
+<div>
+
+</div>
+</body>
+</html>
